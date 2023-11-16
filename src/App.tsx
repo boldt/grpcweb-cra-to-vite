@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 import { EchoServiceClient } from './grpc/EchoServiceClientPb';
 import { EchoRequest } from './grpc/echo_pb';
@@ -15,7 +14,7 @@ function App() {
     request.setMessage('Hello World!');
 
     echoService.echo(request, {}, function(err, response) {
-      setEchoResponse(response.toObject());
+      if(!err) setEchoResponse(response.toObject());
     });
 
   }, []);
