@@ -27,11 +27,9 @@ npm install
 npm run start
 ```
 
-* Open http://localhost:3000
+Issue: Not working without vite:
 
-Issue: Already not working without vite
-
-> 
+> Uncaught SyntaxError: The requested module '/src/grpc/echo_pb.js' does not provide an export named 'EchoRequest' (at App.tsx:4:10)
 
 Source:
 
@@ -45,9 +43,9 @@ npm install
 npm run start
 ```
 
-Issue:
+Issue: Already not working with CRA:
 
-> 
+> Uncaught TypeError: service.EchoRequest is not a constructor
 
 * Open http://localhost:3000
 
