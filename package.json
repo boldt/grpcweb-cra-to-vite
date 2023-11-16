@@ -10,19 +10,17 @@
     "@types/node": "^16.18.61",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "google-protobuf": "3.21.0",
+    "grpc": "file:src/grpc",
+    "grpc-web": "1.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "google-protobuf": "3.14.0",
-    "grpc-web": "1.4.2"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "vite --open",
+    "build": "vite build",
     "grpc": "protoc proto/echo.proto --proto_path=./proto/ --js_out=import_style=commonjs:src/grpc/ --grpc-web_out=import_style=typescript,mode=grpcwebtext:src/grpc/"
   },
   "eslintConfig": {
@@ -42,5 +40,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@originjs/vite-plugin-commonjs": "^1.0.3",
+    "@vitejs/plugin-react": "^4.1.1",
+    "sass": "^1.69.5",
+    "vite": "^4.5.0"
   }
 }

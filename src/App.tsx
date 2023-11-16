@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { EchoServiceClient } from './grpc/EchoServiceClientPb';
-import { EchoRequest } from './grpc/echo_pb';
+import { EchoServiceClient } from 'grpc/EchoServiceClientPb';
+import { EchoRequest } from 'grpc/echo_pb';
 
 function App() {
 
