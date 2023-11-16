@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import { EchoServiceClient } from './grpc/EchoServiceClientPb';
-import { EchoRequest } from './grpc/echo_pb';
+const service = require('./grpc/EchoServiceClientPb');
+
 
 function App() {
 
-  const [echoResponse, setEchoResponse] = useState<EchoRequest.AsObject | undefined>(undefined);
+  const [echoResponse, setEchoResponse] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     var echoService = new EchoServiceClient('http://localhost:8080');
     
-    var request = new EchoRequest();
+    var request = new service.EchoRequest();
     request.setMessage('Hello World!');
 
     echoService.echo(request, {}, function(err, response) {
-      if(!err) setEchoResponse(response.toObject());
+      if(!err) setEchoResponse(response.toObject().message);
     });
 
   }, []);
@@ -23,7 +24,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Response: {echoResponse ? echoResponse.message : "No response yet!"}
+          Response: {echoResponse ? echoResponse : "No response yet!"}
         </p>
       </header>
     </div>
